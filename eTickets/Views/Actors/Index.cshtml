@@ -1,0 +1,57 @@
+@model IEnumerable<Actor>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Actors";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+            <tr class="text-center">
+                <th>@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
+                <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                <th>@Html.DisplayNameFor(model => model.Bio)</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var actor in Model)
+            {
+                <tr>
+                    <td class="align-middle">
+                        <img class="rounded-circle" src="@actor.ProfilePictureURL"
+                             alt="@actor.FullName" style="max-width: 150px"/>
+                    </td>
+                    <td class="align-middle">@actor.FullName</td>
+                    <td class="align-middle">@actor.Bio</td>
+                    <td>
+                        <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@actor.Id">
+                            <i class="bi bi-pencil-square">
+                                Edit
+                            </i>
+                        </a>
+                        |
+                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@actor.Id">
+                            <i class="bi bi-pencil-eye">
+                                Details
+                            </i>
+                        </a>
+                        |
+                        <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@actor.Id">
+                            <i class="bi bi-trash">
+                                Delete
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
+    <a asp-controller="Actors" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i>Add new</a>
+</div>
