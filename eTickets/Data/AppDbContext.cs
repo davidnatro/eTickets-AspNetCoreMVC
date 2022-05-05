@@ -23,18 +23,6 @@ namespace eTickets.Data
         {
         }
 
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        // {
-        //     string connectionString =
-        //         "Server=tcp:db-testing.database.windows.net,1433;Initial Catalog=eTesting;" +
-        //         "Persist Security Info=False;User ID=yeview;Password=Pass4ik123;" +
-        //         "MultipleActiveResultSets=False;Encrypt=True;" +
-        //         "TrustServerCertificate=True;" +
-        //         "Connection Timeout=30;";
-        //
-        //     optionsBuilder.UseSqlServer(connectionString);
-        // }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
